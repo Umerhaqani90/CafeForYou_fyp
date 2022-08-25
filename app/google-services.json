@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "464566547271",
+    "firebase_url": "https://cafe-for-you-default-rtdb.firebaseio.com",
+    "project_id": "cafe-for-you",
+    "storage_bucket": "cafe-for-you.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:464566547271:android:a3e120910f763b349a5262",
+        "android_client_info": {
+          "package_name": "com.yousif.cafeforyou"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "464566547271-rtd076fqtahte9ul4oaq711mbgnj9gcn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.yousif.cafeforyou",
+            "certificate_hash": "fac16a5c9d03dbd0156567f0c4e7321bd4002b2b"
+          }
+        },
+        {
+          "client_id": "464566547271-77kf3mfda8mbfdse97tuonvu8ieph8k7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOiKfI_CXmNb6FM6ZsKeooizGL5US7peQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "464566547271-77kf3mfda8mbfdse97tuonvu8ieph8k7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="yousif.cafeforyou">
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.CafeForYou"
+        tools:targetApi="31">
+        <activity
+            android:name="com.yousif.cafeforyou.User.UserBalanceActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.yousif.cafeforyou.AdminLogin"
+            android:exported="false" />
+        <activity
+            android:name="com.yousif.cafeforyou.User.ViewItems"
+            android:exported="false" />
+        <activity
+            android:name="com.yousif.cafeforyou.User.BookingActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.yousif.cafeforyou.User.UserMainMenu"
+            android:exported="false" />
+        <activity
+            android:name="com.yousif.cafeforyou.ProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.yousif.cafeforyou.ChooseTypeActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.yousif.cafeforyou.AddItemActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.yousif.cafeforyou.MainActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.yousif.cafeforyou.ForgetPassword"
+            android:exported="false" />
+        <activity
+            android:name="com.yousif.cafeforyou.SignIn"
+            android:exported="false" />
+        <activity
+            android:name="com.yousif.cafeforyou.SignUp"
+            android:exported="false" />
+        <activity
+            android:name="com.yousif.cafeforyou.OpenForm"
+            android:exported="false" />
+        <activity
+            android:name="com.yousif.cafeforyou.ViewDetailCategory"
+            android:exported="false" />
+        <activity
+            android:name="com.yousif.cafeforyou.SplashActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <service
+            android:name="com.yousif.cafeforyou.notification.MyFirebaseMessagingService"
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            </intent-filter>
+        </service>
+
+    </application>
+
+</manifest>
