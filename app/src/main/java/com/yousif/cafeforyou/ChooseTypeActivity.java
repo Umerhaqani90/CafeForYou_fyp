@@ -34,6 +34,7 @@ public class ChooseTypeActivity extends AppCompatActivity {
                 Intent intent = new Intent(ChooseTypeActivity.this, SignIn.class);
                 intent.putExtra("Type", "USER");
                 startActivity(intent);
+               // finish();
             }
         });
 

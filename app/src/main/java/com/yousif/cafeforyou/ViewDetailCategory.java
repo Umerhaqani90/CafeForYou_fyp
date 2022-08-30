@@ -32,7 +32,9 @@ public class ViewDetailCategory extends AppCompatActivity {
         categoryListModel = new CategoryListModel();
         categoryListModel = (CategoryListModel) getIntent().getSerializableExtra("SINGLEITEM");
 
-            binding.title.setText("" + categoryListModel.getProductName());
+//        binding.imgUrl.setText("" + categoryListModel.getProductImage());
+        binding.title.setText("" + categoryListModel.getProductName());
+
             binding.price.setText("" + categoryListModel.getProductPrice());
             Glide.with(getApplicationContext()).load(categoryListModel.getImageUrl()).into(binding.Photo);
             otherCategoryClick();

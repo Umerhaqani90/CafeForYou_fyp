@@ -3,6 +3,7 @@ package com.yousif.cafeforyou.User;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -40,8 +41,8 @@ public class UserMainMenu extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(UserMainMenu.this, SignIn.class);
-                intent.putExtra("Purpose", "Logout Successfully");
-//                startActivity(intent);
+                Toast.makeText(UserMainMenu.this, "Log out Successfully", Toast.LENGTH_SHORT).show();
+               // startActivity(intent);
                 finish();
             }
         });

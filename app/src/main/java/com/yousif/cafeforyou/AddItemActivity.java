@@ -40,9 +40,6 @@ public class AddItemActivity extends AppCompatActivity {
         arrayList = new ArrayList<>();
 
         simpleProgressBar.setVisibility(View.VISIBLE);
-
-
-
         getFBData();
         addCategory_inList();
     }

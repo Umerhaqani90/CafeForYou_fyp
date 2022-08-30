@@ -93,6 +93,13 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.ViewHo
             @Override
             public void onClick(View v) {
                 String rechargeET = text.getText().toString();
+                int rechargeEtInt = Integer.parseInt(rechargeET);
+
+                if(rechargeEtInt <500 || rechargeEtInt > 5000){
+                    Toast.makeText(context, "Please use values between 500 - 5000", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 referenceCatList.child(arrayList.get(pos).getPrivate()).child("/Balance").setValue(rechargeET);
                 currentUserRef.child(arrayList.get(pos).getUID()).child("/Balance").setValue(rechargeET);
                 Toast.makeText(context, "***Account Recharged***", Toast.LENGTH_SHORT).show();

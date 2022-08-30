@@ -72,7 +72,6 @@ public class OpenForm extends AppCompatActivity {
 
         uploadDataClick();
 
-
     }
 
 

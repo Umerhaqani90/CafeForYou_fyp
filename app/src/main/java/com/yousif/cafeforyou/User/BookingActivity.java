@@ -160,12 +160,20 @@ public class BookingActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(prevBalance==null){
-                    prevBalance=6000;
+                    prevBalance=5000;
                 }
                 int prevBlnc = (int) prevBalance;
                 int Blnc = Integer.parseInt(categoryListModel.getProductPrice());
-                int totalBlnc = prevBlnc - Blnc;
-                currentUserRef.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("/Balance").setValue(totalBlnc);
+                int totalBlnc;
+                totalBlnc = prevBlnc - Blnc;
+
+                if(totalBlnc <500){
+                    Toast.makeText(confrmPurchaseBtn.getContext(), "Please Recharge Your Balance between 500 - 5000", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+
+                currentUserRef.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("Balance").setValue(totalBlnc);
                 Toast.makeText(getApplicationContext(), "***AMOUNT deducted***", Toast.LENGTH_SHORT).show();
                 getAdminFcmToken(categoryListModel.getProductName());
                 dialog.dismiss();
