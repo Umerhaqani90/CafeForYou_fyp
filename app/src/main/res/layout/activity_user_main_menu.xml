@@ -95,7 +95,7 @@
             android:weightSum="2">
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/selectitemCard"
+                android:id="@+id/viewItemCard"
                 android:layout_width="219dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
@@ -132,7 +132,7 @@
                         android:layout_margin="10dp"
                         android:fontFamily="serif"
                         android:gravity="center"
-                        android:text="Select Item"
+                        android:text="View Item"
                         android:textColor="@color/black"
                         android:textSize="15sp" />
                 </LinearLayout>

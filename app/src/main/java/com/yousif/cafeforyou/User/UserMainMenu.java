@@ -47,7 +47,7 @@ public class UserMainMenu extends AppCompatActivity {
             }
         });
 
-        binding.selectitemCard.setOnClickListener(new View.OnClickListener() {
+        binding.viewItemCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(UserMainMenu.this, ViewItems.class);
