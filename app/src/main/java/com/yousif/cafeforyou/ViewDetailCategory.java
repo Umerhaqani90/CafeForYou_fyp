@@ -12,14 +12,14 @@ import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
-
+import com.yousif.cafeforyou.activity.AddItemActivity;
+import com.yousif.cafeforyou.model.CartModel;
 
 
 import yousif.cafeforyou.databinding.ActivityViewDetailCategoryBinding;
 
 public class ViewDetailCategory extends AppCompatActivity {
-    CategoryListModel categoryListModel;
+    CartModel cartModel;
     ActivityViewDetailCategoryBinding binding;
 //    String CATEGORY;
 
@@ -29,14 +29,14 @@ public class ViewDetailCategory extends AppCompatActivity {
         binding = ActivityViewDetailCategoryBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 //        CATEGORY = getIntent().getStringExtra("CATEGORY");
-        categoryListModel = new CategoryListModel();
-        categoryListModel = (CategoryListModel) getIntent().getSerializableExtra("SINGLEITEM");
+        cartModel = new CartModel();
+        cartModel = (CartModel) getIntent().getSerializableExtra("SINGLEITEM");
 
 //        binding.imgUrl.setText("" + categoryListModel.getProductImage());
-        binding.title.setText("" + categoryListModel.getProductName());
+        binding.title.setText("" + cartModel.getProductName());
 
-            binding.price.setText("" + categoryListModel.getProductPrice());
-            Glide.with(getApplicationContext()).load(categoryListModel.getImageUrl()).into(binding.Photo);
+            binding.price.setText("" + cartModel.getProductPrice());
+            Glide.with(getApplicationContext()).load(cartModel.getImageUrl()).into(binding.Photo);
             otherCategoryClick();
 
 
@@ -49,10 +49,10 @@ public class ViewDetailCategory extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 DatabaseReference reference = FirebaseDatabase.getInstance().getReference("CafeForYou").child("Products");
-                String key = categoryListModel.getKey();
-                categoryListModel = new CategoryListModel(binding.title.getText().toString(),binding.price.getText().toString(),categoryListModel.getImageUrl(),categoryListModel.getKey());
+                String key = cartModel.getKey();
+                cartModel = new CartModel(binding.title.getText().toString(),binding.price.getText().toString(), cartModel.getImageUrl(), cartModel.getKey());
 
-                reference.child(key).setValue(categoryListModel).addOnSuccessListener(new OnSuccessListener<Void>() {
+                reference.child(key).setValue(cartModel).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
                         final Handler handler = new Handler();

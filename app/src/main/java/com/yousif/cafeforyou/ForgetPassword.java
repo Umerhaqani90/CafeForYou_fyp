@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.yousif.cafeforyou.activity.SignInActivity;
 
 import yousif.cafeforyou.databinding.ActivityForgetPasswordBinding;
 
@@ -36,7 +37,7 @@ public class ForgetPassword extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()) {
-                                startActivity(new Intent(ForgetPassword.this, SignIn.class));
+                                startActivity(new Intent(ForgetPassword.this, SignInActivity.class));
                                 finish();
                                 Toast.makeText(ForgetPassword.this, "Waiting For Mail", Toast.LENGTH_SHORT).show();
                             } else {

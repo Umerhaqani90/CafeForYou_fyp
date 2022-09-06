@@ -1,4 +1,4 @@
-package com.yousif.cafeforyou;
+package com.yousif.cafeforyou.model;
 
 public class UserModel {
     String Email,UserName,PhoneNumber,UID,Private,Balance;

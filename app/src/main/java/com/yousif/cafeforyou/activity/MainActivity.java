@@ -1,4 +1,4 @@
-package com.yousif.cafeforyou;
+package com.yousif.cafeforyou.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,6 +20,10 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.messaging.FirebaseMessaging;
+import com.yousif.cafeforyou.ChooseTypeActivity;
+import com.yousif.cafeforyou.ManageUsersFragment;
+import com.yousif.cafeforyou.ProductFragment;
+import com.yousif.cafeforyou.ProfileActivity;
 
 import yousif.cafeforyou.R;
 

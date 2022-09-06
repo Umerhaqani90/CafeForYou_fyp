@@ -6,6 +6,8 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.yousif.cafeforyou.activity.SignInActivity;
+
 import yousif.cafeforyou.databinding.ActivityChooseTypeBinding;
 
 public class ChooseTypeActivity extends AppCompatActivity {
@@ -31,7 +33,7 @@ public class ChooseTypeActivity extends AppCompatActivity {
         binding.openUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ChooseTypeActivity.this, SignIn.class);
+                Intent intent = new Intent(ChooseTypeActivity.this, SignInActivity.class);
                 intent.putExtra("Type", "USER");
                 startActivity(intent);
                // finish();

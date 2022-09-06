@@ -24,6 +24,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.yousif.cafeforyou.model.CartModel;
 
 import yousif.cafeforyou.R;
 
@@ -39,7 +40,7 @@ public class OpenForm extends AppCompatActivity {
     private static final int IMAGE_PICKER_CODE = 101;
     Uri filePath;
     ScrollView otherScrollForm;
-    CategoryListModel categoryListModel;
+    CartModel cartModel;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,7 +52,7 @@ public class OpenForm extends AppCompatActivity {
         img = findViewById(R.id.Photo);
         productname = findViewById(R.id.producttitle);
         priceEdt = findViewById(R.id.price);
-        categoryListModel = new CategoryListModel();
+        cartModel = new CartModel();
 
 
         img.setOnClickListener(new View.OnClickListener() {
@@ -109,8 +110,8 @@ public class OpenForm extends AppCompatActivity {
                 task1.addOnSuccessListener(uri2 -> {
                     DatabaseReference reference = FirebaseDatabase.getInstance().getReference("CafeForYou").child("Products");
                     String key = reference.push().getKey();
-                    categoryListModel = new CategoryListModel(productname.getText().toString(),priceEdt.getText().toString(),uri2.toString(),key);
-                    reference.child(key).setValue(categoryListModel).addOnCompleteListener(task -> {
+                    cartModel = new CartModel(productname.getText().toString(),priceEdt.getText().toString(),uri2.toString(),key);
+                    reference.child(key).setValue(cartModel).addOnCompleteListener(task -> {
                         progressDialog.dismiss();
                         imageuri = filePath = null;
                         Toast.makeText(this, "Uploaded Successfully", Toast.LENGTH_SHORT).show();

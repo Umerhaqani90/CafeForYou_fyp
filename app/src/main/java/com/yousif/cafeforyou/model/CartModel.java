@@ -1,13 +1,21 @@
 package com.yousif.cafeforyou.model;
 
-public class CartModel {
-    private String key,name,image,price;
+import java.io.Serializable;
+
+public class CartModel implements Serializable {
+    private String key, productName, ImageUrl, productPrice;
     private int quantity;
     private float totalPrice;
 
     public CartModel() {
     }
 
+    public CartModel(String productName, String productPrice, String imageUrl, String key) {
+        this.productName = productName;
+        this.productPrice = productPrice;
+        this.ImageUrl = imageUrl;
+        this.key = key;
+    }
     public String getKey() {
         return key;
     }
@@ -16,28 +24,28 @@ public class CartModel {
         this.key = key;
     }
 
-    public String getName() {
-        return name;
+    public String getProductName() {
+        return productName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setProductName(String productName) {
+        this.productName = productName;
     }
 
-    public String getImage() {
-        return image;
+    public String getImageUrl() {
+        return ImageUrl;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setImageUrl(String imageUrl) {
+        this.ImageUrl = imageUrl;
     }
 
-    public String getPrice() {
-        return price;
+    public String getProductPrice() {
+        return productPrice;
     }
 
-    public void setPrice(String price) {
-        this.price = price;
+    public void setProductPrice(String productPrice) {
+        this.productPrice = productPrice;
     }
 
     public int getQuantity() {

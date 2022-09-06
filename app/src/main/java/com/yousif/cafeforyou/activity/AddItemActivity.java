@@ -1,4 +1,4 @@
-package com.yousif.cafeforyou;
+package com.yousif.cafeforyou.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,6 +15,9 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.yousif.cafeforyou.CatAdapter;
+import com.yousif.cafeforyou.OpenForm;
+import com.yousif.cafeforyou.model.CartModel;
 
 import java.util.ArrayList;
 
@@ -23,7 +26,7 @@ import yousif.cafeforyou.R;
 public class AddItemActivity extends AppCompatActivity {
     String CATEGORY;
     RecyclerView recyclerView;
-    ArrayList<CategoryListModel> arrayList;
+    ArrayList<CartModel> arrayList;
     DatabaseReference referenceCatList;
     ProgressBar simpleProgressBar;
     FloatingActionButton add_newCat;
@@ -61,8 +64,8 @@ public class AddItemActivity extends AppCompatActivity {
                 arrayList.clear();
                 simpleProgressBar.setVisibility(View.GONE);
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    CategoryListModel categoryListModel = dataSnapshot.getValue(CategoryListModel.class);
-                    arrayList.add(categoryListModel);
+                    CartModel cartModel = dataSnapshot.getValue(CartModel.class);
+                    arrayList.add(cartModel);
                 }
                 setCatAdapter(arrayList);
             }
@@ -74,7 +77,7 @@ public class AddItemActivity extends AppCompatActivity {
         });
     }
 
-    private void setCatAdapter(ArrayList<CategoryListModel> arrayList) {
+    private void setCatAdapter(ArrayList<CartModel> arrayList) {
         recyclerView.setAdapter(new CatAdapter(arrayList, getApplicationContext(), referenceCatList, purpose));
     }
 }

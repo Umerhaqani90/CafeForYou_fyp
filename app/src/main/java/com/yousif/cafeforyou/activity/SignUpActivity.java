@@ -1,4 +1,4 @@
-package com.yousif.cafeforyou;
+package com.yousif.cafeforyou.activity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -19,7 +19,7 @@ import java.util.HashMap;
 import yousif.cafeforyou.R;
 import yousif.cafeforyou.databinding.ActivitySignUpBinding;
 
-public class SignUp extends AppCompatActivity {
+public class SignUpActivity extends AppCompatActivity {
 
     FirebaseAuth firebaseAuth;
 
@@ -34,7 +34,7 @@ public class SignUp extends AppCompatActivity {
 
 
         binding.MoveOnSignIn.setOnClickListener(view -> {
-            startActivity(new Intent(SignUp.this, SignIn.class));
+            startActivity(new Intent(SignUpActivity.this, SignInActivity.class));
             finish();
         });
 
@@ -95,7 +95,7 @@ public class SignUp extends AppCompatActivity {
                     if (task1.isSuccessful()) {
                         Toast.makeText(this, "Registration Request Send", Toast.LENGTH_SHORT).show();
                         FirebaseAuth.getInstance().signOut();
-                        startActivity(new Intent(SignUp.this, SignIn.class));
+                        startActivity(new Intent(SignUpActivity.this, SignInActivity.class));
                         finish();
                         progressDialog.dismiss();
                     } else {

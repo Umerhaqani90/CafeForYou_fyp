@@ -39,22 +39,25 @@
             android:name="com.yousif.cafeforyou.ProfileActivity"
             android:exported="false" />
         <activity
+            android:name="com.yousif.cafeforyou.CartActivity"
+            android:exported="false" />
+        <activity
             android:name="com.yousif.cafeforyou.ChooseTypeActivity"
             android:exported="false" />
         <activity
-            android:name="com.yousif.cafeforyou.AddItemActivity"
+            android:name="com.yousif.cafeforyou.activity.AddItemActivity"
             android:exported="false" />
         <activity
-            android:name="com.yousif.cafeforyou.MainActivity"
+            android:name="com.yousif.cafeforyou.activity.MainActivity"
             android:exported="false" />
         <activity
             android:name="com.yousif.cafeforyou.ForgetPassword"
             android:exported="false" />
         <activity
-            android:name="com.yousif.cafeforyou.SignIn"
+            android:name="com.yousif.cafeforyou.activity.SignInActivity"
             android:exported="false" />
         <activity
-            android:name="com.yousif.cafeforyou.SignUp"
+            android:name="com.yousif.cafeforyou.activity.SignUpActivity"
             android:exported="false" />
         <activity
             android:name="com.yousif.cafeforyou.OpenForm"
@@ -63,7 +66,10 @@
             android:name="com.yousif.cafeforyou.ViewDetailCategory"
             android:exported="false" />
         <activity
-            android:name="com.yousif.cafeforyou.SplashActivity"
+            android:name="com.yousif.cafeforyou.activity.MainItemActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.yousif.cafeforyou.activity.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

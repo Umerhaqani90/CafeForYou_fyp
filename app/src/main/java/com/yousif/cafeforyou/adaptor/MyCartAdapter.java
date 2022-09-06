@@ -45,10 +45,10 @@ public class MyCartAdapter extends RecyclerView.Adapter<MyCartAdapter.MyViewHold
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         Glide.with(context)
-                .load(cartModelList.get(position).getImage())
+                .load(cartModelList.get(position).getImageUrl())
                 .into(holder.imageView);
-        holder.txtPrice.setText(new StringBuilder("$").append(cartModelList.get(position).getPrice()));
-        holder.txtName.setText(new StringBuilder().append(cartModelList.get(position).getName()));
+        holder.txtPrice.setText(new StringBuilder("$").append(cartModelList.get(position).getProductPrice()));
+        holder.txtName.setText(new StringBuilder().append(cartModelList.get(position).getProductName()));
         holder.txtQuantity.setText(new StringBuilder().append(cartModelList.get(position).getQuantity()));
 
         holder.btnMinus.setOnClickListener(view -> {
@@ -92,7 +92,7 @@ public class MyCartAdapter extends RecyclerView.Adapter<MyCartAdapter.MyViewHold
     private void plusCartItem(MyViewHolder holder, CartModel cartModel) {
 
         cartModel.setQuantity(cartModel.getQuantity()+1);
-        cartModel.setTotalPrice(cartModel.getQuantity()*Float.parseFloat(cartModel.getPrice()));
+        cartModel.setTotalPrice(cartModel.getQuantity()*Float.parseFloat(cartModel.getProductPrice()));
 
         //updateQuantity
         holder.txtQuantity.setText(new StringBuilder().append(cartModel.getQuantity()));
@@ -103,7 +103,7 @@ public class MyCartAdapter extends RecyclerView.Adapter<MyCartAdapter.MyViewHold
         if(cartModel.getQuantity()>1)
         {
             cartModel.setQuantity(cartModel.getQuantity()-1);
-            cartModel.setTotalPrice(cartModel.getQuantity()*Float.parseFloat(cartModel.getPrice()));
+            cartModel.setTotalPrice(cartModel.getQuantity()*Float.parseFloat(cartModel.getProductPrice()));
 
             //updateQuantity
             holder.txtQuantity.setText(new StringBuilder().append(cartModel.getQuantity()));

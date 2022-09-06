@@ -1,10 +1,12 @@
-package com.yousif.cafeforyou;
+package com.yousif.cafeforyou.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.yousif.cafeforyou.ChooseTypeActivity;
 
 import yousif.cafeforyou.R;
 
@@ -19,7 +21,7 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void run() {
                 // Do something after 5s = 5000ms
-                startActivity(new Intent(SplashActivity.this,ChooseTypeActivity.class));
+                startActivity(new Intent(SplashActivity.this, ChooseTypeActivity.class));
                 finish();
             }
         }, 2500);

@@ -1,4 +1,4 @@
-package com.yousif.cafeforyou;
+package com.yousif.cafeforyou.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,12 +16,13 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.nex3z.notificationbadge.NotificationBadge;
+import com.yousif.cafeforyou.CartActivity;
 import com.yousif.cafeforyou.adaptor.MyDrinkAdaptor;
 import com.yousif.cafeforyou.adaptor.eventbus.MyUpdateCartEvent;
 import com.yousif.cafeforyou.listener.ICartLoadListener;
 import com.yousif.cafeforyou.listener.IDrinkLoadListener;
 import com.yousif.cafeforyou.model.CartModel;
-import com.yousif.cafeforyou.model.DrinkModel;
+import com.yousif.cafeforyou.model.CartModel;
 import com.yousif.cafeforyou.utilis.SpaceItemDecoration;
 
 import org.greenrobot.eventbus.EventBus;
@@ -82,9 +83,10 @@ public class MainItemActivity extends AppCompatActivity implements IDrinkLoadLis
     }
 
     private void LoadDrinkFromFirebase() {
-        List<DrinkModel>drinkModeList=new ArrayList<>();
+        List<CartModel>CartModelist=new ArrayList<>();
         FirebaseDatabase.getInstance()
-                .getReference("Drink")
+                .getReference("CafeForYou").child("Products")
+//                .getReference("Drink")
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -92,11 +94,11 @@ public class MainItemActivity extends AppCompatActivity implements IDrinkLoadLis
                         {
                             for(DataSnapshot drinkSnapshot:snapshot.getChildren())
                             {
-                                DrinkModel drinkModel=drinkSnapshot.getValue(DrinkModel.class);
-                                drinkModel.setKey(drinkSnapshot.getKey());
-                                drinkModeList.add(drinkModel);
+                                CartModel CartModel=drinkSnapshot.getValue(CartModel.class);
+                                CartModel.setKey(drinkSnapshot.getKey());
+                                CartModelist.add(CartModel);
                             }
-                            drinkLoadListener.onDrinkLoadSuccess(drinkModeList);
+                            drinkLoadListener.onDrinkLoadSuccess(CartModelist);
                         }
                         else{
                             drinkLoadListener.onDrinkLoadFailure("Can't find drink");
@@ -126,8 +128,8 @@ public class MainItemActivity extends AppCompatActivity implements IDrinkLoadLis
         btnCart.setOnClickListener(view -> startActivity(new Intent(this, CartActivity.class)));
     }
     @Override
-    public void onDrinkLoadSuccess(List<DrinkModel> drinkModelList) {
-        MyDrinkAdaptor adaptor=new MyDrinkAdaptor(this,drinkModelList,cartLoadListener);
+    public void onDrinkLoadSuccess(List<CartModel> CartModelList) {
+        MyDrinkAdaptor adaptor=new MyDrinkAdaptor(this,CartModelList,cartLoadListener);
         recyclerList.setAdapter(adaptor);
 
 

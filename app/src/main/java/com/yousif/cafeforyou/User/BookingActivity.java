@@ -29,8 +29,8 @@ import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 import com.journeyapps.barcodescanner.BarcodeEncoder;
-import com.yousif.cafeforyou.CategoryListModel;
-import com.yousif.cafeforyou.UserModel;
+import com.yousif.cafeforyou.model.UserModel;
+import com.yousif.cafeforyou.model.CartModel;
 import com.yousif.cafeforyou.notification.APIClient;
 import com.yousif.cafeforyou.notification.NotificationAPI;
 import com.yousif.cafeforyou.notification.NotificationData;
@@ -50,7 +50,7 @@ import yousif.cafeforyou.databinding.ActivityBookingBinding;
 
 public class BookingActivity extends AppCompatActivity {
     ActivityBookingBinding binding;
-    CategoryListModel categoryListModel;
+    CartModel cartModel;
     DatabaseReference myRef;
     DatabaseReference currentUserRef, referenceCatList;
     ArrayList<UserModel> arrayList;
@@ -66,12 +66,12 @@ public class BookingActivity extends AppCompatActivity {
         referenceCatList = FirebaseDatabase.getInstance().getReference().child("AllUsers");
         myRef = FirebaseDatabase.getInstance().getReference("CafeForYou").child("PurchaseRequests");
         currentUserRef = FirebaseDatabase.getInstance().getReference().child("User").child("UserDetail");
-        categoryListModel = new CategoryListModel();
-        categoryListModel = (CategoryListModel) getIntent().getSerializableExtra("SINGLEITEM");
+        cartModel = new CartModel();
+        cartModel = (CartModel) getIntent().getSerializableExtra("SINGLEITEM");
 
-        binding.title.setText("" + categoryListModel.getProductName());
-        binding.price.setText("" + categoryListModel.getProductPrice());
-        Glide.with(getApplicationContext()).load(categoryListModel.getImageUrl()).into(binding.Photo);
+        binding.title.setText("" + cartModel.getProductName());
+        binding.price.setText("" + cartModel.getProductPrice());
+        Glide.with(getApplicationContext()).load(cartModel.getImageUrl()).into(binding.Photo);
         uploadHotelDataClick();
         //Allusers
         getFBData();
@@ -162,10 +162,9 @@ public class BookingActivity extends AppCompatActivity {
                 if(prevBalance==null){
                     prevBalance=5000;
                 }
-                int prevBlnc = (int) prevBalance;
-                int Blnc = Integer.parseInt(categoryListModel.getProductPrice());
+                int Blnc = Integer.parseInt(cartModel.getProductPrice());
                 int totalBlnc;
-                totalBlnc = prevBlnc - Blnc;
+                totalBlnc = (int)prevBalance - Blnc;
 
                 if(totalBlnc <500){
                     Toast.makeText(confrmPurchaseBtn.getContext(), "Please Recharge Your Balance between 500 - 5000", Toast.LENGTH_SHORT).show();
@@ -175,7 +174,7 @@ public class BookingActivity extends AppCompatActivity {
 
                 currentUserRef.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("Balance").setValue(totalBlnc);
                 Toast.makeText(getApplicationContext(), "***AMOUNT deducted***", Toast.LENGTH_SHORT).show();
-                getAdminFcmToken(categoryListModel.getProductName());
+                getAdminFcmToken(cartModel.getProductName());
                 dialog.dismiss();
             }
         });
@@ -187,8 +186,8 @@ public class BookingActivity extends AppCompatActivity {
         binding.BookNow.setOnClickListener(view -> {
             HashMap<String, String> map = new HashMap<>();
             String key = myRef.push().getKey();
-            map.put("ProductName", categoryListModel.getProductName());
-            map.put("ProductPrice", categoryListModel.getProductPrice());
+            map.put("ProductName", cartModel.getProductName());
+            map.put("ProductPrice", cartModel.getProductPrice());
             map.put("key", key);
             myRef.child(key).setValue(map).addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override

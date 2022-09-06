@@ -15,18 +15,19 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.google.firebase.database.DatabaseReference;
 import com.yousif.cafeforyou.User.BookingActivity;
+import com.yousif.cafeforyou.model.CartModel;
 
 import java.util.ArrayList;
 
 import yousif.cafeforyou.R;
 
 public class CatAdapter extends RecyclerView.Adapter<CatAdapter.HolderClass> {
-    ArrayList<CategoryListModel> arrayList;
+    ArrayList<CartModel> arrayList;
     Context context;
     DatabaseReference myRef;
     String purpose;
 
-    public CatAdapter(ArrayList<CategoryListModel> arrayList, Context context, DatabaseReference myRef, String purpose) {
+    public CatAdapter(ArrayList<CartModel> arrayList, Context context, DatabaseReference myRef, String purpose) {
         this.arrayList = arrayList;
         this.context = context;
         this.myRef = myRef;
@@ -48,17 +49,17 @@ public class CatAdapter extends RecyclerView.Adapter<CatAdapter.HolderClass> {
         if (purpose.equals("PurchaseItem")) {
             holder.deletebtn.setVisibility(View.GONE);
             holder.itemView.setOnClickListener(view -> {
-                CategoryListModel categoryListModel = arrayList.get(position);
+                CartModel cartModel = arrayList.get(position);
                 Intent intent = new Intent(context, BookingActivity.class);
-                intent.putExtra("SINGLEITEM", categoryListModel);
+                intent.putExtra("SINGLEITEM", cartModel);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
             });
         } else {
             holder.itemView.setOnClickListener(view -> {
-                CategoryListModel categoryListModel = arrayList.get(position);
+                CartModel cartModel = arrayList.get(position);
                 Intent intent = new Intent(context, ViewDetailCategory.class);
-                intent.putExtra("SINGLEITEM", categoryListModel);
+                intent.putExtra("SINGLEITEM", cartModel);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
             });

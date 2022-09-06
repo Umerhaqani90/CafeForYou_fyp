@@ -19,7 +19,7 @@ import androidx.core.app.NotificationCompat;
 
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
-import com.yousif.cafeforyou.MainActivity;
+import com.yousif.cafeforyou.activity.MainActivity;
 
 import java.util.Random;
 

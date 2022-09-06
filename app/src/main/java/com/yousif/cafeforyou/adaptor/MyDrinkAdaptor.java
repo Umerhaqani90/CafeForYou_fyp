@@ -21,7 +21,7 @@ import com.yousif.cafeforyou.adaptor.eventbus.MyUpdateCartEvent;
 import com.yousif.cafeforyou.listener.ICartLoadListener;
 import com.yousif.cafeforyou.listener.IRecyclerViewClickListener;
 import com.yousif.cafeforyou.model.CartModel;
-import com.yousif.cafeforyou.model.DrinkModel;
+import com.yousif.cafeforyou.model.CartModel;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -36,20 +36,20 @@ import yousif.cafeforyou.R;
 
 public class MyDrinkAdaptor extends RecyclerView.Adapter<MyDrinkAdaptor.MyDrinkViewHolder> {
     private Context context;
-    private List<DrinkModel> drinkModelList;
+    private List<CartModel> CartModelList;
     private ICartLoadListener iCartLoadListener;
 
-    public MyDrinkAdaptor(Context context, List<DrinkModel> drinkModelList, ICartLoadListener iCartLoadListener) {
+    public MyDrinkAdaptor(Context context, List<CartModel> CartModelList, ICartLoadListener iCartLoadListener) {
         this.context = context;
-        this.drinkModelList = drinkModelList;
+        this.CartModelList = CartModelList;
         this.iCartLoadListener = iCartLoadListener;
 
     }
 
-//    public MyDrinkAdaptor (Context context,List<DrinkModel>drinkModelList)
+//    public MyDrinkAdaptor (Context context,List<CartModel>CartModelList)
 //    {
 //        this.context=context;
-//        this.drinkModelList=drinkModelList;
+//        this.CartModelList=CartModelList;
 //    }
 
 
@@ -64,23 +64,23 @@ public class MyDrinkAdaptor extends RecyclerView.Adapter<MyDrinkAdaptor.MyDrinkV
     @Override
     public void onBindViewHolder(@NonNull MyDrinkViewHolder holder, int position) {
         Glide.with(context)
-                .load(drinkModelList.get(position).getImage())
+                .load(CartModelList.get(position).getImageUrl())
                 .into(holder.imageView);
-        holder.txtPrice.setText(new StringBuilder("$").append(drinkModelList.get(position).getPrice()));
-        holder.txtName.setText(new StringBuilder().append(drinkModelList.get(position).getName()));
+        holder.txtPrice.setText(new StringBuilder("$").append(CartModelList.get(position).getProductPrice()));
+        holder.txtName.setText(new StringBuilder().append(CartModelList.get(position).getProductName()));
 
         holder.setClickListener((view, adapterPosition) -> {
-            addToCart(drinkModelList.get(position));
+            addToCart(CartModelList.get(position));
 
         });
     }
 
-    private void addToCart(DrinkModel drinkModel) {
+    private void addToCart(CartModel CartModel) {
         DatabaseReference userCart= FirebaseDatabase
                 .getInstance()
                 .getReference("Cart")
                 .child("UNIQUE_USER_ID");
-        userCart.child(drinkModel.getKey())
+        userCart.child(CartModel.getKey())
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -92,9 +92,9 @@ public class MyDrinkAdaptor extends RecyclerView.Adapter<MyDrinkAdaptor.MyDrinkV
                             cartModel.setQuantity(cartModel.getQuantity()+1);
                             Map<String,Object> updateData=new HashMap<>();
                             updateData.put("Quantity",cartModel.getQuantity());
-                            updateData.put("Total Price",cartModel.getQuantity()*Float.parseFloat(cartModel.getPrice()));
+                            updateData.put("Total Price",cartModel.getQuantity()*Float.parseFloat(cartModel.getProductPrice()));
 
-                            userCart.child(drinkModel.getKey())
+                            userCart.child(CartModel.getKey())
                                     .updateChildren(updateData)
                                     .addOnSuccessListener(unused -> iCartLoadListener.onCartLoadFailure("Add to Cart Success")).addOnFailureListener(e -> iCartLoadListener.onCartLoadFailure(e.getMessage()));
 
@@ -102,14 +102,14 @@ public class MyDrinkAdaptor extends RecyclerView.Adapter<MyDrinkAdaptor.MyDrinkV
                         else // if item not have in cart, add new
                         {
                             CartModel cartModel=new CartModel();
-                            cartModel.setName(drinkModel.getName());
-                            cartModel.setImage(drinkModel.getImage());
-                            cartModel.setKey(drinkModel.getKey());
-                            cartModel.setPrice(drinkModel.getPrice());
+                            cartModel.setProductName(CartModel.getProductName());
+                            cartModel.setImageUrl(CartModel.getImageUrl());
+                            cartModel.setKey(CartModel.getKey());
+                            cartModel.setProductPrice(CartModel.getProductPrice());
                             cartModel.setQuantity(1);
-                            cartModel.setTotalPrice(Float.parseFloat(drinkModel.getPrice()));
+                            cartModel.setTotalPrice(Float.parseFloat(CartModel.getProductPrice()));
 
-                            userCart.child(drinkModel.getKey())
+                            userCart.child(CartModel.getKey())
                                     .setValue(cartModel)
                                     .addOnSuccessListener(unused -> iCartLoadListener.onCartLoadFailure("Add to Cart Success")).addOnFailureListener(e -> iCartLoadListener.onCartLoadFailure(e.getMessage()));
 
@@ -129,7 +129,7 @@ public class MyDrinkAdaptor extends RecyclerView.Adapter<MyDrinkAdaptor.MyDrinkV
 
     @Override
     public int getItemCount() {
-        return drinkModelList.size();
+        return CartModelList.size();
     }
 
     public class MyDrinkViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {

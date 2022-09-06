@@ -16,22 +16,18 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.yousif.cafeforyou.AdminLogin;
 import com.yousif.cafeforyou.CatAdapter;
-import com.yousif.cafeforyou.CategoryListModel;
-import com.yousif.cafeforyou.MainActivity;
-import com.yousif.cafeforyou.MainItemActivity;
-import com.yousif.cafeforyou.MainItemActivity_ViewBinding;
-import com.yousif.cafeforyou.SignIn;
+
+import com.yousif.cafeforyou.activity.MainItemActivity;
+import com.yousif.cafeforyou.model.CartModel;
 
 import java.util.ArrayList;
 
 import yousif.cafeforyou.R;
-import yousif.cafeforyou.databinding.ActivityViewItemsBinding;
 
 public class ViewItems extends AppCompatActivity {
    // ActivityViewItemsBinding binding;
-    ArrayList<CategoryListModel> arrayList;
+    ArrayList<CartModel> arrayList;
     DatabaseReference referenceCatList;
     RecyclerView itemRV;
     String purpose;
@@ -57,8 +53,8 @@ public class ViewItems extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ViewItems.this, MainItemActivity.class);
-                //startActivity(intent);
-                finish();
+                startActivity(intent);
+               // finish();
             }
         });
     }
@@ -69,8 +65,8 @@ public class ViewItems extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 arrayList.clear();
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    CategoryListModel categoryListModel = dataSnapshot.getValue(CategoryListModel.class);
-                    arrayList.add(categoryListModel);
+                    CartModel cartModel = dataSnapshot.getValue(CartModel.class);
+                    arrayList.add(cartModel);
                 }
                 setCatAdapter(arrayList);
             }
@@ -82,7 +78,7 @@ public class ViewItems extends AppCompatActivity {
         });
     }
 
-    private void setCatAdapter(ArrayList<CategoryListModel> arrayList) {
+    private void setCatAdapter(ArrayList<CartModel> arrayList) {
         Toast.makeText(this, ""+arrayList.size(), Toast.LENGTH_SHORT).show();
         itemRV.setAdapter(new CatAdapter(arrayList, getApplicationContext(), referenceCatList,purpose));
     }

@@ -1,4 +1,4 @@
-package com.yousif.cafeforyou;
+package com.yousif.cafeforyou.activity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -15,12 +15,13 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.yousif.cafeforyou.ForgetPassword;
 import com.yousif.cafeforyou.User.UserMainMenu;
 
 import yousif.cafeforyou.databinding.ActivitySignInBinding;
 
 
-public class SignIn extends AppCompatActivity {
+public class SignInActivity extends AppCompatActivity {
     ActivitySignInBinding binding;
     FirebaseAuth firebaseAuth;
 
@@ -36,7 +37,7 @@ public class SignIn extends AppCompatActivity {
 
 
         binding.MoveOnSignUp.setOnClickListener(view -> {
-            startActivity(new Intent(SignIn.this, SignUp.class));
+            startActivity(new Intent(SignInActivity.this, SignUpActivity.class));
             finish();
 
         });
@@ -52,7 +53,7 @@ public class SignIn extends AppCompatActivity {
         });
 
         binding.ForgetPassword.setOnClickListener(view -> {
-            startActivity(new Intent(SignIn.this, ForgetPassword.class));
+            startActivity(new Intent(SignInActivity.this, ForgetPassword.class));
 
         });
     }
@@ -77,7 +78,7 @@ public class SignIn extends AppCompatActivity {
 
                         firebaseAuth.signInWithEmailAndPassword(Email, Pass).addOnCompleteListener(task -> {
                             if (task.isSuccessful()) {
-                                startActivity(new Intent(SignIn.this, UserMainMenu.class));
+                                startActivity(new Intent(SignInActivity.this, UserMainMenu.class));
                                 finish();
                             }
                         });
@@ -102,7 +103,7 @@ public class SignIn extends AppCompatActivity {
         super.onStart();
 
         if (FirebaseAuth.getInstance().getCurrentUser() != null) {
-            startActivity(new Intent(SignIn.this, UserMainMenu.class));
+            startActivity(new Intent(SignInActivity.this, UserMainMenu.class));
             finish();
         }
     }

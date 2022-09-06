@@ -7,7 +7,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.yousif.cafeforyou.SignIn;
+import com.yousif.cafeforyou.activity.SignInActivity;
 
 import yousif.cafeforyou.databinding.ActivityUserMainMenuBinding;
 
@@ -30,7 +30,7 @@ public class UserMainMenu extends AppCompatActivity {
         binding.logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(UserMainMenu.this, SignIn.class);
+                Intent intent = new Intent(UserMainMenu.this, SignInActivity.class);
                 intent.putExtra("Purpose", "Logout Successfully");
                 //startActivity(intent);
                 finish();
@@ -40,7 +40,7 @@ public class UserMainMenu extends AppCompatActivity {
         binding.btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(UserMainMenu.this, SignIn.class);
+                Intent intent = new Intent(UserMainMenu.this, SignInActivity.class);
                 Toast.makeText(UserMainMenu.this, "Log out Successfully", Toast.LENGTH_SHORT).show();
                // startActivity(intent);
                 finish();
