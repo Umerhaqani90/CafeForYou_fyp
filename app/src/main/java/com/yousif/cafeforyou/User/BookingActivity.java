@@ -92,14 +92,12 @@ public class BookingActivity extends AppCompatActivity {
 
                     }
                 }
-
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
             }
         });
-
     }
 
     private void getFBData() {

@@ -43,7 +43,7 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.ViewHo
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder,  int position) {
         holder.userName.setText(arrayList.get(position).getUserName());
         holder.delete.setOnClickListener(new View.OnClickListener() {
             @Override

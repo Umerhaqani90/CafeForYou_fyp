@@ -10,10 +10,13 @@
         <entry key="app/src/main/res/layout/activity_add_item.xml" value="0.19010416666666666" />
         <entry key="app/src/main/res/layout/activity_admin_login.xml" value="0.24274139404296874" />
         <entry key="app/src/main/res/layout/activity_booking.xml" value="0.19010416666666666" />
+        <entry key="app/src/main/res/layout/activity_bottom_navigation.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_bottom_navigation_bar.xml" value="0.175" />
         <entry key="app/src/main/res/layout/activity_cart.xml" value="0.19010416666666666" />
         <entry key="app/src/main/res/layout/activity_choose_type.xml" value="0.19010416666666666" />
         <entry key="app/src/main/res/layout/activity_forget_password.xml" value="0.19010416666666666" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.19010416666666666" />
+        <entry key="app/src/main/res/layout/activity_main_item.xml" value="0.19010416666666666" />
         <entry key="app/src/main/res/layout/activity_open_form.xml" value="0.19010416666666666" />
         <entry key="app/src/main/res/layout/activity_profile.xml" value="0.19010416666666666" />
         <entry key="app/src/main/res/layout/activity_sign_in.xml" value="0.19010416666666666" />
@@ -23,17 +26,22 @@
         <entry key="app/src/main/res/layout/activity_view_detail_category.xml" value="0.19010416666666666" />
         <entry key="app/src/main/res/layout/activity_view_items.xml" value="0.19010416666666666" />
         <entry key="app/src/main/res/layout/app_bar_main.xml" value="0.19010416666666666" />
+        <entry key="app/src/main/res/layout/content_bottom_navigation_drawer.xml" value="0.2015625" />
         <entry key="app/src/main/res/layout/content_main.xml" value="0.19010416666666666" />
         <entry key="app/src/main/res/layout/custom_dialog.xml" value="0.19010416666666666" />
         <entry key="app/src/main/res/layout/fragment_edit.xml" value="0.19010416666666666" />
         <entry key="app/src/main/res/layout/fragment_manage_users.xml" value="0.19010416666666666" />
         <entry key="app/src/main/res/layout/fragment_product.xml" value="0.19010416666666666" />
         <entry key="app/src/main/res/layout/input_bg.xml" value="0.19010416666666666" />
+        <entry key="app/src/main/res/layout/layout_cart_item.xml" value="0.19010416666666666" />
+        <entry key="app/src/main/res/layout/layout_drink_item.xml" value="0.19010416666666666" />
         <entry key="app/src/main/res/layout/nav_header_main.xml" value="0.19010416666666666" />
         <entry key="app/src/main/res/layout/place_view.xml" value="0.19010416666666666" />
         <entry key="app/src/main/res/layout/qrcode_dialog.xml" value="0.19010416666666666" />
         <entry key="app/src/main/res/layout/user_row.xml" value="0.19010416666666666" />
         <entry key="app/src/main/res/menu/activity_main_drawer.xml" value="0.19010416666666666" />
+        <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.1890625" />
+        <entry key="app/src/main/res/menu/bottom_navigation_drawer.xml" value="0.19010416666666666" />
         <entry key="app/src/main/res/menu/main3.xml" value="0.19010416666666666" />
         <entry key="app/src/main/res/menu/main_menu.xml" value="0.19010416666666666" />
       </map>

@@ -21,6 +21,10 @@
         android:theme="@style/Theme.CafeForYou"
         tools:targetApi="31">
         <activity
+            android:name="com.yousif.cafeforyou.BottomNavigationActivity"
+            android:exported="false"
+            android:label="@string/title_activity_bottom_navigation" />
+        <activity
             android:name="com.yousif.cafeforyou.User.UserBalanceActivity"
             android:exported="false" />
         <activity
@@ -48,7 +52,7 @@
             android:name="com.yousif.cafeforyou.activity.AddItemActivity"
             android:exported="false" />
         <activity
-            android:name="com.yousif.cafeforyou.activity.MainActivity"
+            android:name="com.yousif.cafeforyou.activity.SplashActivity"
             android:exported="false" />
         <activity
             android:name="com.yousif.cafeforyou.ForgetPassword"
@@ -69,7 +73,7 @@
             android:name="com.yousif.cafeforyou.activity.MainItemActivity"
             android:exported="false" />
         <activity
-            android:name="com.yousif.cafeforyou.activity.SplashActivity"
+            android:name="com.yousif.cafeforyou.activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -77,6 +81,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <service
             android:name="com.yousif.cafeforyou.notification.MyFirebaseMessagingService"
             android:exported="true"
@@ -86,7 +91,6 @@
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
             </intent-filter>
         </service>
-
     </application>
 
 </manifest>

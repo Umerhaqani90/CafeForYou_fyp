@@ -7,7 +7,9 @@ public class CartModel implements Serializable {
     private int quantity;
     private float totalPrice;
 
-    public CartModel() {
+    public CartModel()
+    {
+
     }
 
     public CartModel(String productName, String productPrice, String imageUrl, String key) {

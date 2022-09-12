@@ -10,6 +10,7 @@ import com.yousif.cafeforyou.activity.SignInActivity;
 
 import yousif.cafeforyou.databinding.ActivityChooseTypeBinding;
 
+
 public class ChooseTypeActivity extends AppCompatActivity {
 
     ActivityChooseTypeBinding binding;

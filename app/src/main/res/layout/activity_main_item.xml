@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/mainLayout"
-    tools:context=".MainItemActivity">
+    tools:context="com.yousif.cafeforyou.activity.MainItemActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -54,10 +54,10 @@
             <com.nex3z.notificationbadge.NotificationBadge
                 android:id="@+id/badge"
                 android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/cartButton"
                 android:layout_marginStart="10dp"
                 android:layout_toRightOf="@id/cartButton"
-                android:layout_alignTop="@id/cartButton"
                 app:nbMaxTextLength="2">
 
             </com.nex3z.notificationbadge.NotificationBadge>

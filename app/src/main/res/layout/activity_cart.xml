@@ -22,7 +22,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="start|center_vertical"
             android:layout_weight="2"
-            android:src="@drawable/ic_baseline_navigate_before_24"></ImageView>
+            android:src="@drawable/ic_baseline_navigate_before_24">
+
+        </ImageView>
 
         <TextView
             android:id="@+id/txt_Total"
@@ -38,14 +40,14 @@
     </LinearLayout>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_cart"
-        android:layout_above="@id/BookNow"
+        android:layout_above="@id/btnPurchase"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/panel"
         android:padding="8dp"/>
 
     <Button
-        android:id="@+id/BookNow"
+        android:id="@+id/btnPurchase"
         android:layout_width="220dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"

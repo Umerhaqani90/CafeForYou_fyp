@@ -21,4 +21,11 @@
     <string name="enter_your_info">Name</string>
     <string name="generate_qr_code">Show QR To Purchase</string>
     <string name="confirm">Confirm Purchase</string>
+    <string name="title_activity_bottom_navigation_bar">bottomNavigationBar</string>
+    <string name="title_activity_bottom_navigation_drawer">BottomNavigationDrawer</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="title_activity_bottom_navigation">BottomNavigationActivity</string>
 </resources>

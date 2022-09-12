@@ -16,16 +16,16 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="20dp">
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
 
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="220dp"
                 android:layout_margin="10dp"
-                app:cardCornerRadius="20dp"
-                android:elevation="20dp">
+                android:elevation="20dp"
+                app:cardCornerRadius="20dp">
 
                 <ImageView
                     android:id="@+id/Photo"
@@ -72,6 +72,7 @@
                         android:orientation="vertical">
 
                         <TextView
+                            android:id="@+id/txtPrice"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
